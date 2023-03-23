@@ -13,8 +13,8 @@ export default function Product({
 }) {
   return (
     <section className="">
-      <div className="text-center my-10 text-3xl">
-        <h1 className="py-3">Latest Products</h1>
+      <div className="text-center my-10 text-xl">
+        <h1 className="py-3 text-3xl">Latest Products</h1>
         <hr />
       </div>
       <div className=" grid grid-cols-2 lg:flex   lg:justify-center  space-x-2 px-10">
@@ -32,7 +32,7 @@ export default function Product({
         </button>
         <button
           onClick={() => filterProduct("electronics")}
-          className=" my-2  hover:bg-slate-800 delay-300 hover:text-white duration-150 ease-in px-5 py-1 shadow bg-white mr-3 text-slate-500 outline-black rounded border"
+          className=" my-2  text-sm hover:bg-slate-800 delay-300 hover:text-white duration-150 ease-in px-5 py-1 shadow bg-white mr-3 text-slate-500 outline-black rounded border"
         >
           Electronics
         </button>

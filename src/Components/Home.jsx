@@ -4,7 +4,6 @@ import Product from "./Products/Product";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import axios from "axios";
-import Header from "./Layouts/Header";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -37,7 +36,6 @@ export default function Home() {
   return (
     <div className=" ">
       <Navbar />
-      <Header />
 
       {loading ? (
         <>
@@ -57,7 +55,7 @@ export default function Home() {
           </div>
         </>
       ) : (
-        <div className=" px-10 lg:px-20">
+        <div className=" px-5 lg:px-20">
           <Product
             filterProduct={filterProduct}
             filter={filter}
