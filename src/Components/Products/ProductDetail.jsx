@@ -14,6 +14,7 @@ export default function ProductDetail() {
   const [showCartButton, setShowCartButton] = useState(false);
   const dispatch = useDispatch();
 
+  const productIsInCart = useSelector((state) => state.cart.addedToCart);
   const addItemHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -21,9 +22,10 @@ export default function ProductDetail() {
         price: product.price,
         title: product.title,
         image: product.image,
-      })
+      }),
+      (productIsInCart = true)
     );
-    setShowCartButton(true);
+    // setShowCartButton(true);
   };
 
   //
@@ -75,7 +77,7 @@ export default function ProductDetail() {
             <p>{product.description}</p>
 
             <div className="flex my-5">
-              {!showCartButton && (
+              {!productIsInCart && (
                 <button
                   onClick={addItemHandler}
                   className="px-3 py-1 mr-3 outline  bg-slate-900 text-white  duration-300 delay-150 transition rounded my-2 ease-in"
@@ -84,7 +86,7 @@ export default function ProductDetail() {
                 </button>
               )}
               <NavLink to="/cart">
-                {showCartButton && (
+                {productIsInCart && (
                   <button className="px-3 py-1  border hover:outline hover:outline-slate-900 hover:bg-slate-700 hover:text-white text-slate-700 duration-300 delay-150 transition rounded my-2 ease-in">
                     Go to Cart
                   </button>
