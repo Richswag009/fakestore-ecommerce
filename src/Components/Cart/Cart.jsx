@@ -46,7 +46,7 @@ const Cart = (props) => {
           No Items Added to Cart Yet
         </h1>
       ) : (
-        <div>
+        <div className="my-5">
           <ul className="mx-10">{allCartItems}</ul>
 
           <div className="grid place-items-center">
