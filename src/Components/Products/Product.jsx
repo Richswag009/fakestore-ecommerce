@@ -69,7 +69,7 @@ export default function Product({
         </>
       ) : (
         // <ProductItem />
-        <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-1 items-center">
+        <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  items-center">
           {filter.map((product) => {
             return (
               <ProductItem
@@ -81,16 +81,7 @@ export default function Product({
             );
           })}
 
-          {/* {data.map((product) => {
-            return (
-              <ProductItem
-                key={product.id}
-                data={data}
-                product={product}
-                loading={loading}
-              />
-            );
-          })} */}
+       
         </div>
       )}
     </section>
