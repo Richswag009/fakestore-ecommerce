@@ -3,7 +3,7 @@ import Navbar from "./Layouts/Navbar";
 import Product from "./Products/Product";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import axios from "axios";
+import productData from "../Data";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -11,21 +11,31 @@ export default function Home() {
   const [loading, Setloading] = useState(false);
   let componentMounted = true;
 
+  // const getProducts = async () => {
+  //   Setloading(true);
+  //   const response = await axios.get(`https://fakestoreapi.com/products`);
+  //   if (componentMounted) {
+  //     setData(response.data);
+  //     console.log(response.data);
+  //     setFilter(response.data);
+  //     Setloading(false);
+  //   }
+  //   return () => {
+  //     componentMounted = false;
+  //   };
+  // };
+
   useEffect(() => {
-    const getProducts = async () => {
+    if (componentMounted) {
       Setloading(true);
-      const response = await axios.get(`https://fakestoreapi.com/products`);
-      if (componentMounted) {
-        setData(response.data);
-        console.log(response.data);
-        setFilter(response.data);
-        Setloading(false);
-      }
-      return () => {
-        componentMounted = false;
-      };
+      setData(productData);
+      console.log(productData);
+      setFilter(productData);
+      Setloading(false);
+    }
+    return () => {
+      componentMounted = false;
     };
-    getProducts();
   }, []);
 
   const filterProduct = (cat) => {
@@ -36,7 +46,6 @@ export default function Home() {
   return (
     <div className=" ">
       <Navbar />
-
       {loading ? (
         <>
           <div className=" mx-20 my-10 grid grid-cols1 lg:grid-cols-4 gap-4">
